@@ -1,4 +1,4 @@
-function octaveUI()
+function UI()
   
   close all
   clear
@@ -485,7 +485,6 @@ function runSimulationButton_Callback(obj, init)
   mkdir(dataFolder);
   backupConfig(dataFolder, handles);
   startSimulations(dataFolder, handles);
-
 end
 
 

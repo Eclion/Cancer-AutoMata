@@ -6,6 +6,13 @@ To use this program, you either need Matlab or Octave installed on your computer
 
 Once installed, open the file UI.m file and run the program.
 
+Please allow between 10-20 minutes for each 20-steps simulation run to complete, on current
+ desktop computers with Matlab (at least 2 hours with Octave) with the default parameters.
+
+You can reduce the dish size, dish height in order to make the silumation faster but please
+ keep in mind that your output may differ from the paper results.
+
+
 ## Instructions to use the program
 
 Before running a simulation, you can change the following parameters:
