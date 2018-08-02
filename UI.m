@@ -78,7 +78,7 @@ handles.panel = uipanel('parent',f, 'title', 'Simulation Properties', 'position'
 
 
 %handles.modelPanel = uipanel('parent', handles.panel, 'title', 'Model', 'position', [0.01 0.90 0.98 0.10]);
-handles.modelSelector = uibuttongroup('parent',handles.panel,'title', 'Model','Position',[0.01 0.90 0.98 0.10]);
+handles.modelSelector = uipanel('parent',handles.panel,'title', 'Model','Position',[0.01 0.90 0.98 0.09]);
 
 handles.rulePanel = uipanel('parent', handles.panel, 'title', 'Rules', 'position', [0.01 0.50 0.98 0.39]);
 
@@ -500,8 +500,8 @@ function modelA_Callback(hObject, init)
 
 handles = guidata (hObject);
 
-set(handles.minimumSurvival, 'string', 2);
-set(handles.maximumSurvival, 'string', 3);
+set(handles.minimumSurvival, 'string', '2');
+set(handles.maximumSurvival, 'string', '3');
 set(handles.survival, 'string', '2 to 3');
 set(handles.minSurvPart3, 'string', 'live neighbors dies, caused by under-population.');
 set(handles.maxSurvPart3, 'string', 'live neighbors dies, caused by overcrowding.');
@@ -509,11 +509,13 @@ set(handles.survivalPart1, 'visible', 'on');
 set(handles.survival, 'visible', 'on');
 set(handles.survivalPart3, 'string', 'live neighbors lives on the next generation.','visible', 'on');
 set(handles.birthPart5, 'string', 'live neighbors becomes live cell as by reproduction.');
-set(handles.minimumBirth, 'string', 3);
-set(handles.maximumBirth, 'string', 3);
+set(handles.minimumBirth, 'string', '3');
+set(handles.maximumBirth, 'string', '3');
 set(handles.rule5, 'visible', 'off');
 set(handles.rule6, 'visible', 'off');
-set(handles.dishHeight,'string',4);
+set(handles.dishHeight,'string','4');
+set(handles.modelBbtn, 'Value', 0);
+set(handles.modelCbtn, 'Value', 0);
 
 guidata(hObject, handles)
 
@@ -523,8 +525,8 @@ function modelB_Callback(hObject, init)
 
 handles = guidata (hObject);
 
-set(handles.minimumSurvival, 'string', 2);
-set(handles.maximumSurvival, 'string', 3);
+set(handles.minimumSurvival, 'string', '2');
+set(handles.maximumSurvival, 'string', '3');
 set(handles.survival, 'string', '2 to 3');
 set(handles.minSurvPart3, 'string', 'live neighbors dies, caused by under-population.');
 set(handles.maxSurvPart3, 'string', 'live neighbors dies, caused by overcrowding.');
@@ -532,11 +534,13 @@ set(handles.survivalPart1, 'visible', 'on');
 set(handles.survival, 'visible', 'on');
 set(handles.survivalPart3, 'string', 'live neighbors becomes a M cell on the next generation.','visible', 'on');
 set(handles.birthPart5, 'string', 'live neighbors (E or M) becomes live (E or M) cell as by reproduction.');
-set(handles.minimumBirth, 'string', 3);
-set(handles.maximumBirth, 'string', 3);
+set(handles.minimumBirth, 'string', '3');
+set(handles.maximumBirth, 'string', '3');
 set(handles.rule5, 'visible', 'on');
 set(handles.rule6, 'visible', 'on');
-set(handles.dishHeight,'string',4);
+set(handles.dishHeight,'string','4');
+set(handles.modelAbtn, 'Value', 0);
+set(handles.modelCbtn, 'Value', 0);
 
 guidata(hObject, handles)
 
@@ -546,8 +550,8 @@ function modelC_Callback(hObject, init)
 
 handles = guidata (hObject);
 
-set(handles.minimumSurvival, 'string', 4);
-set(handles.maximumSurvival, 'string', 8);
+set(handles.minimumSurvival, 'string', '4');
+set(handles.maximumSurvival, 'string', '8');
 set(handles.survival, 'string', '4 to 8');
 set(handles.minSurvPart3, 'string', 'live neighbors becomes a M cell on the next generation.');
 set(handles.maxSurvPart3, 'string', 'live neighbors becomes a E cell on the next generation.');
@@ -555,11 +559,13 @@ set(handles.survivalPart1, 'visible', 'off');
 set(handles.survival, 'visible', 'off');
 set(handles.survivalPart3, 'visible', 'off');
 set(handles.birthPart5, 'string', 'live neighbors (E or M) becomes live (E or M) cell as by reproduction.');
-set(handles.minimumBirth, 'string', 2);
-set(handles.maximumBirth, 'string', 7);
+set(handles.minimumBirth, 'string', '2');
+set(handles.maximumBirth, 'string', '7');
 set(handles.rule5, 'visible', 'on');
 set(handles.rule6, 'visible', 'on');
-set(handles.dishHeight,'string',2);
+set(handles.dishHeight,'string','2');
+set(handles.modelAbtn, 'Value', 0);
+set(handles.modelBbtn, 'Value', 0);
 
 guidata(hObject, handles)
 
