@@ -123,14 +123,14 @@ handles.survivalPart3 = uicontrol ('parent', handles.rulePanel, 'style', 'text',
 
 % ----- third rule ----------------------
 maxSurvLineY = 0.55;
-handles.maxSurvPart1 = uicontrol ('parent', handles.rulePanel, 'style', 'text', 'units', 'normalized', 'position', [0.01 maxSurvLineY 0.18 lineSize], 'string', 'iii)  Any E cell with > ', 'fontsize',10, 'horizontalalignment', 'left');
+handles.maxSurvPart1 = uicontrol ('parent', handles.rulePanel, 'style', 'text', 'units', 'normalized', 'position', [0.01 maxSurvLineY 0.18 lineSize], 'string', 'iii) Any E cell with > ', 'fontsize',10, 'horizontalalignment', 'left');
 handles.maximumSurvival = uicontrol ('parent', handles.rulePanel, 'style', 'edit', 'units', 'normalized', 'position', [0.20 maxSurvLineY 0.09 lineSize], 'fontsize',10, 'horizontalalignment', 'center', 'callback', @maximumSurvival_Callback);
 handles.maxSurvPart3 = uicontrol ('parent', handles.rulePanel, 'style', 'text', 'units', 'normalized', 'position', [0.31 maxSurvLineY 0.5 lineSize], 'string', 'live neighbors dies, caused by overcrowding.', 'fontsize',10, 'horizontalalignment', 'left');
 
 
 % ----- fourth rule ----------------------
 birthLineY = 0.40;
-handles.birthPart1 = uicontrol ('parent', handles.rulePanel, 'style', 'text', 'units', 'normalized', 'position', [0.01 birthLineY 0.27 lineSize], 'string', 'iv)   Any dead/empty cell with', 'fontsize',10, 'horizontalalignment', 'left');
+handles.birthPart1 = uicontrol ('parent', handles.rulePanel, 'style', 'text', 'units', 'normalized', 'position', [0.01 birthLineY 0.27 lineSize], 'string', 'iv)  Any dead/empty cell with', 'fontsize',10, 'horizontalalignment', 'left');
 handles.minimumBirth = uicontrol ('parent', handles.rulePanel, 'style', 'edit', 'units', 'normalized', 'position', [0.28 birthLineY 0.05 lineSize], 'fontsize',10, 'horizontalalignment', 'center', 'callback', @minimumBirth_Callback);
 handles.birthPart3 = uicontrol ('parent', handles.rulePanel, 'style', 'text', 'units', 'normalized', 'position', [0.34 birthLineY 0.02 lineSize], 'string', 'to', 'fontsize',10, 'horizontalalignment', 'left');
 handles.maximumBirth = uicontrol ('parent', handles.rulePanel, 'style', 'edit', 'units', 'normalized', 'position', [0.37 birthLineY 0.05 lineSize], 'fontsize',10, 'horizontalalignment', 'center', 'callback', @maximumBirth_Callback);
@@ -138,8 +138,8 @@ handles.birthPart5 = uicontrol ('parent', handles.rulePanel, 'style', 'text', 'u
 
 % ----- fifth and sixth rule ----------------------
 
-handles.rule5 = uicontrol ('parent', handles.rulePanel, 'style', 'text', 'units', 'normalized', 'position', [0.01 0.25 0.98 lineSize], 'string', 'v) Any M cell is able to move randomly to an empty cell on the next generation.', 'fontsize',10, 'horizontalalignment', 'left');
-handles.rule6 = uicontrol ('parent', handles.rulePanel, 'style', 'text', 'units', 'normalized', 'position', [0.01 0.10 0.98 lineSize], 'string', 'vi)   Any M cell that is unable to move becomes an E cell on the next generation.', 'fontsize',10, 'horizontalalignment', 'left');
+handles.rule5 = uicontrol ('parent', handles.rulePanel, 'style', 'text', 'units', 'normalized', 'position', [0.01 0.25 0.98 lineSize], 'string', 'v)   Any M cell is able to move randomly to an empty cell on the next generation.', 'fontsize',10, 'horizontalalignment', 'left');
+handles.rule6 = uicontrol ('parent', handles.rulePanel, 'style', 'text', 'units', 'normalized', 'position', [0.01 0.10 0.98 lineSize], 'string', 'vi)  Any M cell that is unable to move becomes an E cell on the next generation.', 'fontsize',10, 'horizontalalignment', 'left');
 
 end
 function handles = createGraphicParamsUI(handles, enableSnapshots, enable3DSnapshots, snapshotSteps)
@@ -501,18 +501,25 @@ function modelA_Callback(hObject, init)
 handles = guidata (hObject);
 
 set(handles.minimumSurvival, 'string', '2');
-set(handles.maximumSurvival, 'string', '3');
-set(handles.survival, 'string', '2 to 3');
 set(handles.minSurvPart3, 'string', 'live neighbors dies, caused by under-population.');
-set(handles.maxSurvPart3, 'string', 'live neighbors dies, caused by overcrowding.');
-set(handles.survivalPart1, 'visible', 'on');
-set(handles.survival, 'visible', 'on');
-set(handles.survivalPart3, 'string', 'live neighbors lives on the next generation.','visible', 'on');
-set(handles.birthPart5, 'string', 'live neighbors becomes live cell as by reproduction.');
-set(handles.minimumBirth, 'string', '3');
-set(handles.maximumBirth, 'string', '3');
+
+set(handles.survivalPart1, 'position', [0.01 0.70 0.18 0.10], 'visible', 'on');
+set(handles.survival, 'position', [0.20 0.70 0.09 0.10], 'string', '2 to 3', 'visible', 'on');
+set(handles.survivalPart3, 'position', [0.31 0.70 0.5 0.10], 'string', 'live neighbors lives on the next generation.','visible', 'on');
+
+set(handles.maxSurvPart1, 'position', [0.01 0.55 0.18 0.10], 'string', 'iii) Any E cell with > ');
+set(handles.maximumSurvival, 'position', [0.20 0.55 0.09 0.10], 'string', '3');
+set(handles.maxSurvPart3, 'position', [0.31 0.55 0.5 0.10], 'string', 'live neighbors dies, caused by overcrowding.');
+
+set(handles.birthPart1, 'position', [0.01 0.40 0.27 0.10], 'string', 'iv)  Any dead/empty cell with');
+set(handles.minimumBirth, 'position', [0.28 0.40 0.05 0.10], 'string', '3');
+set(handles.birthPart3, 'position', [0.34 0.40 0.02 0.10]);
+set(handles.maximumBirth, 'position', [0.37 0.40 0.05 0.10], 'string', '3');
+set(handles.birthPart5, 'position', [0.43 0.40 0.55 0.10], 'string', 'live neighbors becomes live cell as by reproduction.');
+
 set(handles.rule5, 'visible', 'off');
 set(handles.rule6, 'visible', 'off');
+
 set(handles.dishHeight,'string','4');
 set(handles.modelBbtn, 'Value', 0);
 set(handles.modelCbtn, 'Value', 0);
@@ -526,18 +533,25 @@ function modelB_Callback(hObject, init)
 handles = guidata (hObject);
 
 set(handles.minimumSurvival, 'string', '2');
-set(handles.maximumSurvival, 'string', '3');
-set(handles.survival, 'string', '2 to 3');
 set(handles.minSurvPart3, 'string', 'live neighbors dies, caused by under-population.');
-set(handles.maxSurvPart3, 'string', 'live neighbors dies, caused by overcrowding.');
-set(handles.survivalPart1, 'visible', 'on');
-set(handles.survival, 'visible', 'on');
-set(handles.survivalPart3, 'string', 'live neighbors becomes a M cell on the next generation.','visible', 'on');
-set(handles.birthPart5, 'string', 'live neighbors (E or M) becomes live (E or M) cell as by reproduction.');
-set(handles.minimumBirth, 'string', '3');
-set(handles.maximumBirth, 'string', '3');
-set(handles.rule5, 'visible', 'on');
-set(handles.rule6, 'visible', 'on');
+
+set(handles.survivalPart1, 'position', [0.01 0.70 0.18 0.10], 'visible', 'on');
+set(handles.survival, 'position', [0.20 0.70 0.09 0.10], 'string', '2 to 3', 'visible', 'on');
+set(handles.survivalPart3, 'position', [0.31 0.70 0.5 0.10], 'string', 'live neighbors becomes a M cell on the next generation.','visible', 'on');
+
+set(handles.maxSurvPart1, 'position', [0.01 0.55 0.18 0.10], 'string', 'iii) Any E cell with > ');
+set(handles.maximumSurvival, 'position', [0.20 0.55 0.09 0.10], 'string', '3');
+set(handles.maxSurvPart3, 'position', [0.31 0.55 0.5 0.10], 'string', 'live neighbors dies, caused by overcrowding.');
+
+set(handles.birthPart1, 'position', [0.01 0.40 0.27 0.10], 'string', 'iv)  Any dead/empty cell with');
+set(handles.minimumBirth, 'position', [0.28 0.40 0.05 0.10], 'string', '3');
+set(handles.birthPart3, 'position', [0.34 0.40 0.02 0.10]);
+set(handles.maximumBirth, 'position', [0.37 0.40 0.05 0.10], 'string', '3');
+set(handles.birthPart5, 'position', [0.43 0.40 0.55 0.10], 'string', 'live neighbors (E or M) becomes live (E or M) cell as by reproduction.');
+
+set(handles.rule5, 'position', [0.01 0.25 0.98 0.10], 'string', 'v)   Any M cell is able to move randomly to an empty cell on the next generation.', 'visible', 'on');
+set(handles.rule6, 'position', [0.01 0.10 0.98 0.10], 'string', 'vi)  Any M cell that is unable to move becomes an E cell on the next generation.', 'visible', 'on');
+
 set(handles.dishHeight,'string','4');
 set(handles.modelAbtn, 'Value', 0);
 set(handles.modelCbtn, 'Value', 0);
@@ -551,18 +565,25 @@ function modelC_Callback(hObject, init)
 handles = guidata (hObject);
 
 set(handles.minimumSurvival, 'string', '4');
-set(handles.maximumSurvival, 'string', '8');
-set(handles.survival, 'string', '4 to 8');
 set(handles.minSurvPart3, 'string', 'live neighbors becomes a M cell on the next generation.');
-set(handles.maxSurvPart3, 'string', 'live neighbors becomes a E cell on the next generation.');
+
 set(handles.survivalPart1, 'visible', 'off');
-set(handles.survival, 'visible', 'off');
+set(handles.survival, 'string', '4 to 8', 'visible', 'off');
 set(handles.survivalPart3, 'visible', 'off');
-set(handles.birthPart5, 'string', 'live neighbors (E or M) becomes live (E or M) cell as by reproduction.');
-set(handles.minimumBirth, 'string', '2');
-set(handles.maximumBirth, 'string', '7');
-set(handles.rule5, 'visible', 'on');
-set(handles.rule6, 'visible', 'on');
+
+set(handles.maxSurvPart1, 'position', [0.01 0.70 0.18 0.10], 'string', 'ii)  Any M cell with > ');
+set(handles.maximumSurvival, 'position', [0.20 0.70 0.09 0.10], 'string', '8');
+set(handles.maxSurvPart3, 'position', [0.31 0.70 0.5 0.10], 'string', 'live neighbors becomes a E cell on the next generation.');
+
+set(handles.birthPart1, 'position', [0.01 0.55 0.27 0.10], 'string', 'iii) Any dead/empty cell with');
+set(handles.minimumBirth, 'position', [0.28 0.55 0.05 0.10], 'string', '2');
+set(handles.birthPart3, 'position', [0.34 0.55 0.02 0.10]);
+set(handles.maximumBirth, 'position', [0.37 0.55 0.05 0.10], 'string', '7');
+set(handles.birthPart5, 'position', [0.43 0.55 0.55 0.10], 'string', 'live neighbors (E or M) becomes live (E or M) cell as by reproduction.');
+
+set(handles.rule5, 'position', [0.01 0.40 0.98 0.10], 'string', 'iv)  Any M cell is able to move randomly to an empty cell on the next generation.', 'visible', 'on');
+set(handles.rule6, 'position', [0.01 0.25 0.98 0.10], 'string', 'v)   Any M cell that is unable to move becomes an E cell on the next generation.', 'visible', 'on');
+
 set(handles.dishHeight,'string','2');
 set(handles.modelAbtn, 'Value', 0);
 set(handles.modelBbtn, 'Value', 0);
